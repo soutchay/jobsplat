@@ -1,0 +1,12 @@
+<h1>Here is a list of all companies</h1>
+<ul>
+<% @companies.each do |b| %>
+	<li>
+		<strong><%= b.name %></strong>
+	</li>
+	<li>
+		<%= b.about %> </br>
+		Location: <%= b.address %>
+	</li>
+	<% end %>
+</ul>
