@@ -1,7 +1,18 @@
-<!-- user has logged in, can now view information about companies, their resume/skills, etc -->
-<body>
-	<div class="title">C*Splat
-	</div>
-	<div>a place for employers and candidates to share information</div>
-	<div>Please log in:</div>
-</body>
+<!-- user index view, user has not logged in, can now view information about companies, etc -->
+
+<div class="title">C*Splat
+</div>
+<div>a place for employers and candidates to share information</div>
+<div>Please log in:</div>
+<div><%= link_to "Not Registered? Register Here", users_new_path %></div>
+</br>
+<div>List of jobs </div>
+<%# @jobs.each do |j| %>
+	<%#= j.name %>
+<%# end %>
+</br>
+<div>List of companies </div>
+<% @companies.each do |c| %>
+	<%= c.name %>
+<% end %>
+<%#= @companies.name %>

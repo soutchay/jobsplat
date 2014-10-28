@@ -1,0 +1,10 @@
+<h2>Registration for C*Splat</h2>
+<%= form_for @user do |s| %>
+	Username: <br><%= s.text_field :username %> <br><br>
+	Password: <br><%= s.text_field :password %><br><br>
+	Reenter Password: <br><%= s.text_field :password %><br><br>
+	Email: <br><%= s.text_field :email %><br><br>
+	Location(optional): <br><%= s.text_field :location %><br><br>
+
+	<%= s.submit "Complete Registration" %>
+	<% end %>

@@ -1,6 +1,11 @@
 Jobsplat::Application.routes.draw do
 # Users
+  # this sets the main page to be the users#index.html.erb
+  root "users#index"
+
   get "users/" => "users#index"
+
+  get "users/new" => "users#new"
 
   get "users/:id" => "users#show"
 
