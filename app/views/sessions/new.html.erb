@@ -1,0 +1,21 @@
+<h2>Login for C*Splat</h2>
+<%= form_for(@user, {url: sessions_path}) do |s| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	Username: <br><%= s.text_field :username %> <br><br>
+	Enter a Password: <br><%= s.password_field :password %><br><br>
+	Reenter Password: <br><%= s.password_field :password_confirmation %><br><br>
+	Email: <br><%= s.text_field :email %><br><br>
+	Location(optional): <br><%= s.text_field :location %><br><br>
+
+	<%= s.submit "Log in" %>
+	<% end %>

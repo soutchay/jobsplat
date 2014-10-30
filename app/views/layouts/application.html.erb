@@ -7,7 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<% if current_user %>
+	Hello, <%= current_user.username %>
+	<%= button_to "Log Out", destroy_session_path, method: :delete, class: 'logbutton' %>
+	<!-- links always do GET, buttons always do POST -->
+<% else %>
+<%= link_to "Login", new_session_path %>
+<% end %> <br>
+<%= session[:user_id] %>
 <%= yield %>
 
 </body>

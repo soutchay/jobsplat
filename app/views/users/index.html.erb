@@ -12,7 +12,15 @@
 <%# end %>
 </br>
 <div>List of companies </div>
-<% @companies.each do |c| %>
+<div>
+	<% @companies.each do |c| %>
 	<%= c.name %>
 <% end %>
+</div>
 <%#= @companies.name %>
+<div>List of Users </div>
+<div>
+<% @users.each do |c| %>
+	<%= c.username %><br>
+<% end %>
+</div>

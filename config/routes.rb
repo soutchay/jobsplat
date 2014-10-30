@@ -1,11 +1,19 @@
 Jobsplat::Application.routes.draw do
+  # resources sessions, only: [:create, :new:, :destroy]
+  get "sessions/new" => "sessions#new", as: :new_session
+
+  post "sessions/" => "sessions#create"
+
+  delete "sessions/" => "sessions#destroy", as: :destroy_session
 # Users
   # this sets the main page to be the users#index.html.erb
   root "users#index"
 
-  get "users/" => "users#index"
+  get "users/" => "users#index", as: :index
 
   get "users/new" => "users#new"
+
+  post "users/" => "users#create"
 
   get "users/:id" => "users#show"
 
