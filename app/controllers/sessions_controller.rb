@@ -6,8 +6,9 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		# Find the user that is trying to log in		
-		u = User.where(email: params[:user][:email]).first
+		 # raise params.inspect
+		# Find the user that is trying to log in, looking at something by user which has username nested under username from model/class, can add ', email: params[:user][:email]' to make it also require email as a params		
+		u = User.where(username: params[:user][:username]).first
 		if u && u.authenticate(params[:user][:password])
 			# Store as a cookie in the users' browser the ID of them,
 			# indicating that they are logged in

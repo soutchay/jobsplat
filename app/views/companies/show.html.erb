@@ -1,6 +1,10 @@
 <h1> <%= @company.name %> </h1>
 <p> <%= @company.about %> </p>
 <h5> <%= @company.address %> </h5>
-<h4> <%= @company.jobs %> </h4>
 
+<% @company.jobs.each do |c| %>
+<h6> <%= "#{c.title}" %> -- <%= c.salary %> </h6>
+<% end %>
 <!-- link_to new job path(@company) -->
+
+<%= link_to "Add Job", new_job_path %>

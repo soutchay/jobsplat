@@ -5,7 +5,9 @@ gem 'mongoid', github: 'mongoid/mongoid'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
+gem "d3_rails"
 
+gem 'bower-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 

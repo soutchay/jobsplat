@@ -4,5 +4,6 @@ class Job
   field :description, type: String
   field :salary, type: String
   field :is_open, type: Mongoid::Boolean
-  embedded_in :company
+  
+  belongs_to :company
 end

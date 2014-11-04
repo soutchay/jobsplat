@@ -20,13 +20,29 @@ Jobsplat::Application.routes.draw do
 # Companies
   get "companies/" => "companies#index"
 
-  get "companies/new" => "companies#new"
+  get "companies/new" => "companies#new", as: :new_company
 
-  get "companies/:id" => "companies#show"
+  get "companies/:id" => "companies#show", as: :company
 
   post "companies/" => "companies#create"
 
-  get "companies/:id/jobs" => "jobs#index"
+  delete "companies/:id" => "companies#destroy", as: :destroy_company
+
+# Jobs
+  get "companies/:id/jobs" => "jobs#index", as: :jobs
+
+  get "companies/:id/jobs/new" => "jobs#new", as: :new_job
+
+  post "companies/:id/jobs/" => "jobs#create"
+
+  get "companies/:id/jobs/:job_id/edit" => "job#edit", as: :edit_job
+
+  get "companies/:id/jobs/:job_id" => "job#show", as: :job
+
+  patch "companies/:id/jobs/:job_id" => "job#update"
+
+  delete "companies/:id/jobs/:job_id" => "job#destroy"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

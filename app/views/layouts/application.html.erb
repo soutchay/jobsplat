@@ -3,16 +3,17 @@
 <head>
   <title>Jobsplat</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", 'd3' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body ng-app="thisApp">
 <% if current_user %>
 	Hello, <%= current_user.username %>
 	<%= button_to "Log Out", destroy_session_path, method: :delete, class: 'logbutton' %>
 	<!-- links always do GET, buttons always do POST -->
 <% else %>
 <%= link_to "Login", new_session_path %>
+<%= link_to "Register Here", users_new_path %>
 <% end %> <br>
 <%= session[:user_id] %>
 <%= yield %>

@@ -6,4 +6,6 @@ class User
   field :password_digest, type: String
   field :location, type: String
   field :email, type: String
+  field :is_verified, type: Mongoid::Boolean, default: false
+  field :is_admin, type: Mongoid::Boolean, default: false
 end

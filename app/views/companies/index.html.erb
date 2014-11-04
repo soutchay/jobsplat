@@ -2,7 +2,7 @@
 <ul>
 <% @companies.each do |b| %>
 	<li>
-		<strong><%= b.name %></strong>
+		<strong><%= link_to "#{b.name}", company_path(b) %></strong>
 	</li>
 	<li>
 		<%= b.about %> </br>

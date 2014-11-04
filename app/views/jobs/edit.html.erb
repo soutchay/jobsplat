@@ -1,0 +1,9 @@
+<h1>Edit this Job</h1>
+<%= form_for @job do |f| %>
+ 	<%= f.hidden_field :company_id, :value => @company %>
+	Name: <%= f.text_field :title %>
+	Information: <%= f.text_field :description %>
+	Salary: <%= f.text_field :salary %>
+	Position is open: <%= f.check_box :is_open %>
+<%= f.submit "Edit this position" %>
+<% end %>

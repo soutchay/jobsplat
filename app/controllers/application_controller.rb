@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def current_user
   	# catch current_user and make it available everywhere
   	# if user not logged in will say nil, will say user object if logged in
-  	# || means memoization, go to database, cache
+  	# || means memoization, go to database, cache current user
   	# where method always brings back an array of stuff, so .first will pick up first thing
   	@current_user ||= User.where(id: session[:user_id]).first
     # find all users with this session id, if there were multiple we only want the first one
