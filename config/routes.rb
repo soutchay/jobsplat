@@ -43,7 +43,7 @@ Jobsplat::Application.routes.draw do
 
   patch "jobs/:job_id" => "jobs#update", as: :update_job
 
-  delete "companies/:id/jobs/:job_id" => "jobs#destroy"
+  delete "jobs/:job_id" => "jobs#destroy"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -18,24 +18,35 @@ class JobsController < ApplicationController
 		end
 	end
 	def show
+		
 		# @company = Company.find(params[:id])
 		@job = Job.find(params[:job_id])
 	end
 	def edit
-		@one_job = Job.find(params[:job_id])
+		
+		@job = Job.find(params[:job_id])
+		
 		# @company = Company.find(params[:id])
        # @job = Job.find(params[:job_id])
 	end
 	def update
         #rip the params out of the url
-     
-	@job = Job.find(params[:job_id])
-	@job.title = params[:title]
-    @job.save
-    redirect_to job_path(params[:job_id])
-   # @job.update(params.require(:job).permit(:title, :description, :salary, :is_open))
-
-
+         # raise "update"
+		@job = Job.find(params[:job_id])
 		
+		@job.title = params[:job][:title]
+		@job.description = params[:job][:description]
+		@job.salary = params[:job][:salary]
+		@job.is_open = params[:job][:is_open]
+		@job.save
+	    
+	    redirect_to job_path(:job_id => params[:job_id])
+   # @job.update(params.require(:job).permit(:title, :description, :salary, :is_open))
+	end
+
+	def destroy
+		@job = Job.find(params[:job_id])
+		@job.destroy
+		redirect_to company_path
 	end
 end

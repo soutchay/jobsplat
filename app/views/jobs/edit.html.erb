@@ -1,9 +1,12 @@
 <h1>Edit this Job</h1>
 <!--form_for( @job ,:url => {:action => :update, :controller => :jobs} )-->
-<%= form_for ( @one_job ) do |f| %>
+<%= form_for ( @job ) do |f| %>
+	<%= hidden_field_tag :job_id, @job.id %>
 	Title: <%= f.text_field :title %>
 	Information: <%= f.text_field :description %>
-	Salary: <%= f.text_field :salary %>
+	Salary: <%= f.text_field :salary %> <br>
 	Position is open: <%= f.check_box :is_open %>
-<%= f.submit "Update this position", method: :patch, update_job_path(@company.id, @one_job) %>
+<%= f.submit "Update this position" %>
+<!--, method: :patch, update_job_path(@company.id, @one_job)-->
 <% end %>
+<%= link_to "Delete this position", :job, method: :delete, data: { confirm: "Are you sure you want to delete #{@job.title}?"} %>
