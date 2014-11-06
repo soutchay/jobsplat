@@ -15,4 +15,5 @@
 //= require d3
 //= require angular
 //= require angular-ui-router
+//= require bootstrap
 //= require_tree .

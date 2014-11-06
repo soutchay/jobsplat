@@ -68,5 +68,6 @@ function app_graph(){
             return yScale(d[1]);
           })       
           .attr('fill', 'blue');
+          console.log("soething");
 }
 window.onload=app_graph;

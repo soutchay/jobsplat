@@ -3,8 +3,16 @@ class UsersController < ApplicationController
 		@users = User.all
 		@companies = Company.all
 #		@jobs = Job.all
-		@crunchbase = Array.new
-
+		uri = HTTParty.get"http://api.crunchbase.com/v/2/organizations?user_key=d224dae72322c76020abe8f666bdb12e"
+		@crunchbase = JSON.parse(uri.body)
+		@cbarray = []
+		# @crunchbase['data']['items'].each do |x|
+	 # 		@cbarray << x['name']
+	 # 	for i in 0 .. @cbarray.length
+	 # 		if @cbarray[i] === @cbarray[i+1]
+	 # 			@cbarray[i].pop
+	 # 		end
+		# end
 	end
 	def show
 		@user = User.find(params[:id])

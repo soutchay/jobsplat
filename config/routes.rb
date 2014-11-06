@@ -29,19 +29,21 @@ Jobsplat::Application.routes.draw do
   delete "companies/:id" => "companies#destroy", as: :destroy_company
 
 # Jobs
+ # post 'jobs/update' => 'jobs#update', as: :update_jobs
+
   get "companies/:id/jobs" => "jobs#index", as: :jobs
 
   get "companies/:id/jobs/new" => "jobs#new", as: :new_job
 
-  post "companies/:id/jobs/" => "jobs#create"
+  post "companies/:id/jobs" => "jobs#create"
 
-  get "companies/:id/jobs/:job_id/edit" => "job#edit", as: :edit_job
+  get "jobs/:job_id/edit" => "jobs#edit", as: :edit_job
 
-  get "companies/:id/jobs/:job_id" => "job#show", as: :job
+  get "jobs/:job_id" => "jobs#show", as: :job
 
-  patch "companies/:id/jobs/:job_id" => "job#update"
+  patch "jobs/:job_id" => "jobs#update", as: :update_job
 
-  delete "companies/:id/jobs/:job_id" => "job#destroy"
+  delete "companies/:id/jobs/:job_id" => "jobs#destroy"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

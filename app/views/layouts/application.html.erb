@@ -2,11 +2,13 @@
 <html>
 <head>
   <title>Jobsplat</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", 'd3' => true %>
+  <%= javascript_include_tag "application", "" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body ng-app="thisApp">
+
 <% if current_user %>
 	Hello, <%= current_user.username %>
 	<%= button_to "Log Out", destroy_session_path, method: :delete, class: 'logbutton' %>

@@ -1,5 +1,6 @@
 <!-- user index view, user has not logged in, can now view information about companies, etc -->
-
+	<div class="col-sm-4"></div>
+	<div class="col-sm-1">
 <div class="title">C*Splat
 </div>
 <div>a place for employers and candidates to share information</div>
@@ -16,6 +17,14 @@
 </br>
 <div>List of companies </div>
 <div>
+
+	<% @crunchbase['data']['items'].each do |x| %>
+	<%= x['name'] %><br>
+	<% end %>
+
+
+</div>
+<div>
 	<% @companies.each do |c| %>
 	<% if current_user %>
 	<%= link_to "#{c.name}", company_path(c) %>
@@ -31,4 +40,5 @@
 <% @users.each do |c| %>
 	<%= c.username %><br>
 <% end %>
+</div>
 </div>
