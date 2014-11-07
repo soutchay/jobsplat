@@ -2,26 +2,33 @@ class UsersController < ApplicationController
 	def index
 		@users = User.all
 		@companies = Company.all
-#		@jobs = Job.all
-		uri = HTTParty.get"http://api.crunchbase.com/v/2/organizations?user_key=d224dae72322c76020abe8f666bdb12e"
-		@crunchbase = JSON.parse(uri.body)
-		data = @crunchbase['data']
-		item = data['item']
+#		@jobs = Job.alld224dae72322c76020abe8f666bdb12e
+		# raise ENV["CB_CLIENT_KEY"].inspect
+		uri = HTTParty.get("http://api.crunchbase.com/v/2/organizations?user_key=d224dae72322c76020abe8f666bdb12e")
+		crunchbase = JSON.parse(uri.body)
+		data = crunchbase['data']
+		@item = data['item']
 		# organization = item[:name].first
 		@cbarray = []
-		@crunchbase['data']['items'].each do |x| 
+		crunchbase['data']['items'].each do |x| 
 			@cbarray.push(x)
-		end		
-		# @cbarray.delete_at(0)
+		end	
+		# @org = HTTParty.get("http://api.crunchbase.com/v/2/" + ['path'] + "?user_key=d224dae72322c76020abe8f666bdb12e")
+		# @cbarray.each do |p|
+		# cburi = HTTParty.get("http://api.crunchbase.com/v/2/" + p['path'] + "?user_key=d224dae72322c76020abe8f666bdb12e")
+		# end
+
 		# raise @cbarray.inspect
-		for i in 1..@cbarray.length
-			if (@cbarray[i]['name'] == @cbarray[i-1]['name'])
-				@cbarray.delete_at(i)
-			end
-			# end
-		end
-		# @cbarray is the crunchbase organizations name
-		
+
+		# attempt to clear duplicate names
+		# for i in 1..@cbarray.length
+		# 	if (@cbarray[i]['name'] == @cbarray[i-1]['name'])
+		# 		@cbarray.delete_at(i)
+		# 	end
+		# end
+
+		# @cbarray is the crunchbase organizations information
+		# 
 
 	end
 	def show

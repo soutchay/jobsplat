@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'httparty'
 
+gem 'rails_12factor'
+
 gem 'bootstrap-sass', '~> 3.2.0'
 #mongoid for server
 gem 'mongoid', github: 'mongoid/mongoid'
