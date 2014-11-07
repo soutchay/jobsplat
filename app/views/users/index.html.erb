@@ -18,8 +18,8 @@
 <div>List of companies </div>
 <div>
 
-	<% @crunchbase['data']['items'].each do |x| %>
-	<%= x['name'] %><br>
+	<% @cbarray.each do |c| %>
+		<%= c['name'] %>
 	<% end %>
 
 

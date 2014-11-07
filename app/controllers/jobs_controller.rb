@@ -18,7 +18,6 @@ class JobsController < ApplicationController
 		end
 	end
 	def show
-		
 		# @company = Company.find(params[:id])
 		@job = Job.find(params[:job_id])
 	end
@@ -47,6 +46,6 @@ class JobsController < ApplicationController
 	def destroy
 		@job = Job.find(params[:job_id])
 		@job.destroy
-		redirect_to company_path
+		redirect_to (company_path(:id => @job.company_id))
 	end
 end
