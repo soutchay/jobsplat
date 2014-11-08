@@ -8,16 +8,43 @@
   <%= csrf_meta_tags %>
 </head>
 <body ng-app="thisApp">
+<!-- user index view, user has not logged in, can now view information about companies, etc -->
+<div class="navbar-wrapper">
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <ul class="nav navbar-nav" id="icon">
+	      	<li><%= link_to "C*Splat", root_path %></li>
+	      </ul>
+	    </div>
 
-<% if current_user %>
-	Hello, <%= current_user.username %>
-	<%= button_to "Log Out", destroy_session_path, method: :delete, class: 'logbutton' %>
-	<!-- links always do GET, buttons always do POST -->
-<% else %>
-<%= link_to "Login", new_session_path %>
-<%= link_to "Register Here", users_new_path %>
-<% end %> 
-<br>
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="#">About</a></li>
+	        <li><a href="#">Visualize</a></li>
+	        <li><a href="#">Contact Me</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	      	<% if current_user %>
+	      	<li><%= link_to "Hello, #{current_user.username}", user_path(current_user) %>  </li>
+	      	<li><%= link_to "Log Out", destroy_session_path, method: :delete, class: 'logbutton' %> </li>
+	      	<% else %>
+	        <li><%= link_to "Login", new_session_path %></li>
+	        <li><%= link_to "Register Here", users_new_path %> </li>
+	        <% end %>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
 <%= yield %>
 
 </body>

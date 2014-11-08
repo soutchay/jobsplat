@@ -1,6 +1,4 @@
-<!-- user index view, user has not logged in, can now view information about companies, etc -->
-	<div class="col-sm-4"></div>
-	<div class="col-sm-1">
+
 <div class="title">C*Splat
 </div>
 <div>a place for employers and candidates to share information</div>
@@ -18,12 +16,9 @@
 <div>List of companies </div>
 <div>
 	
-
-
-	<% @cbarray.each do |c| %>
-		<%= c['name'] %> <br>
-	<% end %>
-
+	<%# @info.each do |i| %>
+		<%#= link_to "#{i.name}", company_path(i.id) %>
+	<%# end %>
 
 </div>
 <div>
@@ -40,7 +35,7 @@
 <div>List of Users </div>
 <div>
 <% @users.each do |c| %>
-	<%= c.username %><br>
+	<%= c.username %>
 <% end %>
 </div>
 </div>

@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   helper_method :current_user
+  cb_key = ENV["CB_CLIENT_ID"]
   def current_user
   	# catch current_user and make it available everywhere
   	# if user not logged in will say nil, will say user object if logged in

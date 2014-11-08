@@ -1,11 +1,16 @@
 <h1> <%= @company.name %> </h1>
-<p> <%= @company.about %> </p>
-<h5> <%= @company.address %> </h5>
+
 
 <% @company.jobs.each do |j| %>
 
 <h6><%= link_to "#{j.title}", job_path(j.id) %> -- <%= j.salary %> </h6>
+	<% if j.is_open %>
+		<h7>Job is available</h7>
+	<% else %>
+		<h7>Job is not available</h7>
+	<% end %>
 <% end %>
+<br>
 <!-- link_to new job path(@company) -->
 
 <%= link_to "Add Job", new_job_path %>

@@ -15,7 +15,7 @@ Jobsplat::Application.routes.draw do
 
   post "users/" => "users#create"
 
-  get "users/:id" => "users#show"
+  get "users/:id" => "users#show", as: :user
 
 # Companies
   get "companies/" => "companies#index"
