@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
 			# indicating that they are logged in
 			# translating to a string, sticks it to browser
 			session[:user_id] = u.id.to_s
-			redirect_to users_path
+			redirect_to user_path(u)
 		else
 			# Go back to the login page
 			redirect_to new_session_path

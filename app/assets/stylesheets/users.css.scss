@@ -1,9 +1,44 @@
 // Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// They will automtically be included in application.css.
+// You can use Sass (SCSS) here: http:sass-lang.com/
 div {
 	text-align: center;
 }
-.field_with_errors {
-	text-align: left;
+.graph {
+	position: fixed;
+	left: 0;
+	z-index: 99;
+	margin-top: 10%;
+}
+.title {
+	font-size: 50px;
+	font-family: 'Merriweather', serif;
+	color: white;
+}
+.about {
+	background: black;
+	padding-bottom: 20%;
+	padding-top: 10px;
+}
+.shortdesc {
+	color: white;
+}
+.description {
+	background: red;
+	color: black;
+	margin: 10px;
+	padding: 20px;
+	border-radius: 5px;
+	font-size: 20px;
+	width: 50%;
+	left: 24%;
+	text-align: center;
+	position: relative;
+}
+
+.visualize {
+	background: url(business2.jpg);
+	height: 500px;
+	width: 100%;
+	background-size: 100%;
 }

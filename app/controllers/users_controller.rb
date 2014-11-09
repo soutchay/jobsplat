@@ -1,28 +1,28 @@
 class UsersController < ApplicationController
 	def index
+		# data = crunchbase['data']
+		# @item = data['item']
+		# # organization = item[:name].first
+
 		cb_key = ENV["CB_CLIENT_ID"]
 		@users = User.all
 		@companies = Company.all
 		@info = CompanyInfo.all
-#		@jobs = Job.alld224dae72322c76020abe8f666bdb12e
-		# raise ENV["CB_CLIENT_KEY"].inspect
-		uri = HTTParty.get("http://api.crunchbase.com/v/2/organizations?user_key="+cb_key)
-		crunchbase = JSON.parse(uri.body)
-		# data = crunchbase['data']
-		# @item = data['item']
-		# # organization = item[:name].first
-		@cbarray = []
-		@otherarray = []
 
-		crunchbase['data']['items'].each do |x| 
-			@cbarray.push(x)
-		end
-	    # @cbarray.push(crunchbase['data']['items'].e)
+		# uri = HTTParty.get("http://api.crunchbase.com/v/2/organizations?user_key="+cb_key)
+		# crunchbase = JSON.parse(uri.body)
+		# @cbarray = []
+		# @otherarray = []
+
+		# crunchbase['data']['items'].each do |x| 
+		# 	@cbarray.push(x)
+		# end
+	 #    # @cbarray.push(crunchbase['data']['items'].e)
 	   
-	    @cbarray.each do |p|
-           @company_info  = Company.new(p)
-           @company_info.save
-	    end	
+	 #    @cbarray.each do |p|
+  #          @company_info  = Company.new(p)
+  #          @company_info.save
+	 #    end	
 		
 
 		# @org = HTTParty.get("http://api.crunchbase.com/v/2/" + ['path'] + "?user_key=d224dae72322c76020abe8f666bdb12e")
@@ -45,6 +45,11 @@ class UsersController < ApplicationController
 	end
 	def show
 		@user = User.find(params[:id])
+		cb_key = ENV["CB_CLIENT_ID"]
+		@users = User.all
+		@companies = Company.all
+		@info = CompanyInfo.all
+		@jobs = Job.all
 	end
 	def new
 		@user = User.new
@@ -55,7 +60,7 @@ class UsersController < ApplicationController
 		if @user.save
 			# when someone makes a user, it will automatically log them in, @user references to @user under this method
 			session[:user_id] = @user.id.to_s
-			redirect_to users_path
+			redirect_to user_path(@user)
 		else
 			render 'new'
 		end

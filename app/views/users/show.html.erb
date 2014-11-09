@@ -2,4 +2,42 @@
 <div class="title">C*Splat
 </div>
 <div>a place for employers and candidates to share information</div>
-	<%= @user.email %>
+<% if current_user %>
+<div><%= link_to "Add your company", new_company_path %></div>
+<% else %>
+<div><%= link_to "Not Registered? Register Here", users_new_path %></div>
+</br>
+<% end %>
+
+
+<div>List of jobs </div>
+<% @jobs.each do |j| %>
+	<%= j.title %>
+<% end %>
+</br>
+<div>List of companies </div>
+<div>
+	
+	<%# @info.each do |i| %>
+		<%#= link_to "#{i.name}", company_path(i.id) %>
+	<%# end %>
+
+</div>
+<div>
+	<% @companies.each do |c| %>
+	<% if current_user %>
+	<%= link_to "#{c.name}", company_path(c) %>
+ 	<% else %>
+	<%= c.name %>
+	<% end %>
+	<br>
+<% end %>
+</div>
+<%#= @companies.name %>
+<div>List of Users </div>
+<div>
+<% @users.each do |c| %>
+	<%= c.username %>
+<% end %>
+</div>
+</div>
