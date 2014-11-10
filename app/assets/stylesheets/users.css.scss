@@ -3,12 +3,26 @@
 // You can use Sass (SCSS) here: http:sass-lang.com/
 div {
 	text-align: center;
+	position: relative;
+}
+.font {
+	font-size: 30px;
+}
+.error {
+	list-style-type: none;
+	text-align: left;
+}
+.testdiv {
+	margin: 0 auto;
+	height: 20px;
+	width: 200px;
 }
 .graph {
-	position: fixed;
 	left: 0;
 	z-index: 99;
 	margin-top: 10%;
+	position: fixed;
+
 }
 .title {
 	font-size: 50px;
@@ -43,7 +57,7 @@ div {
 }
 .visualize {
 	background: image-url('business2.jpg');
-	height: 500px;
+	height: 600px;
 	width: 100%;
 	background-size: 100%;
 }
@@ -54,7 +68,7 @@ div {
 	left: 35%;
 	height: 20px;
 	width: 300px;
-	background: red;
+	text-shadow: 2px 2px #CCFFFF;
 }
 .contact {
 	background: image-url('business-opportunity.jpg');
@@ -63,8 +77,15 @@ div {
 	background-size: 100%;
 	z-index: 100;
 }
-
+.questions {
+	position: relative;
+	top: 55%;
+	left: 70%;
+	height: 100px;
+	width: 100px;
+	text-shadow: 3px 3px #CCFFFF;
+}
 .listscroll {
 	overflow-y: scroll;
-	height: 100px;
+	height: 150px;
 }

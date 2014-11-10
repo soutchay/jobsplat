@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	before_filter :authorize, :except => :index
 	def index
 		# data = crunchbase['data']
 		# @item = data['item']

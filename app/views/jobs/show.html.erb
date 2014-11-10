@@ -1,4 +1,18 @@
-show.html.erb<br>
-<%= @job.title %>
-<%= @job.id %>
+<br>
+<strong>Job Title: </strong><%= @job.title %>
+
+<br>
+<% if @job.is_open %>
+	<h7>Job is Available</h7>
+<% else %>
+	<h7>Job is Not Available</h7>
+<% end %>
+<div><strong>Job Description: </strong><%= @job.description %>
+</div>
+<% if @job.salary != "" %>
+<div><strong>Salary: </strong><%= @job.salary %></div>
+<% else %>
+<div>No salary provided </div>
+<% end %>
+<br>
 <%= link_to "Edit this job", edit_job_path(@job) %>

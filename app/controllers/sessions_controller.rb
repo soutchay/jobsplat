@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+	skip_before_filter :authorize
 	def new
 		# Present an empty login form
 		@user = User.new
@@ -23,6 +24,6 @@ class SessionsController < ApplicationController
 
 	def destroy
 		reset_session
-		redirect_to index_path
+		redirect_to root_path
 	end
 end

@@ -1,4 +1,14 @@
 <h2>Registration for C*Splat</h2>
+  <% if @user.errors.any? %>
+    <div>
+      <h2>Invalid Form</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <div class="testdiv"><li class="error"><%= message %></li></div>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <%= form_for @user do |s| %>
 	Username: <br><%= s.text_field :username %> <br><br>
 	Email: <br><%= s.text_field :email %><br><br>

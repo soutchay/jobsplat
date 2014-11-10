@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+	before_filter :authorize
 	def index
 		@jobs = Job.all
 	end
