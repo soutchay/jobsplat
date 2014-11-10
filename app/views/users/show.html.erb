@@ -11,9 +11,11 @@
 
 
 <div>List of jobs </div>
+<div class="listscroll">
 <% @jobs.each do |j| %>
-	<%= j.title %>
+	<%= link_to "#{j.title}", job_path(j) %>
 <% end %>
+</div>
 </br>
 <div>List of companies </div>
 <div>
@@ -23,7 +25,7 @@
 	<%# end %>
 
 </div>
-<div>
+<div class="listscroll">
 	<% @companies.each do |c| %>
 	<% if current_user %>
 	<%= link_to "#{c.name}", company_path(c) %>
@@ -35,7 +37,7 @@
 </div>
 <%#= @companies.name %>
 <div>List of Users </div>
-<div>
+<div class="listscroll">
 <% @users.each do |c| %>
 	<%= c.username %>
 <% end %>

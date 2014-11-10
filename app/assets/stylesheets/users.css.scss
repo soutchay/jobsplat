@@ -27,18 +27,44 @@ div {
 	background: red;
 	color: black;
 	margin: 10px;
-	padding: 20px;
+	padding: 18px;
 	border-radius: 5px;
 	font-size: 20px;
 	width: 50%;
 	left: 24%;
-	text-align: center;
+	text-align: left;
 	position: relative;
 }
-
+.letter {
+	font-size: 22px;
+}
+#visualize {
+	transition: top 10s;
+}
 .visualize {
 	background: url(business2.jpg);
 	height: 500px;
 	width: 100%;
 	background-size: 100%;
+}
+.bargraphclick {
+	position: relative;
+	font-size: 30px;
+	top: 15%;
+	left: 35%;
+	height: 20px;
+	width: 300px;
+	background: red;
+}
+.contact {
+	background: url(business-opportunity.jpg);
+	height: 500px;
+	width: 100%;
+	background-size: 100%;
+	z-index: 100;
+}
+
+.listscroll {
+	overflow-y: scroll;
+	height: 100px;
 }
