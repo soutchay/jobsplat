@@ -11,8 +11,8 @@ private
   	# if user not logged in will say nil, will say user object if logged in
   	# || means memoization, go to database, cache current user
   	# where method always brings back an array of stuff, so .first will pick up first thing
-  	# @current_user ||= User.where(id: session[:user_id]).first
-    @current_user ||= User.find(session[:user_id]) if session[:user_id] 
+  	@current_user ||= User.where(id: session[:user_id]).first
+    # @current_user ||= User.find(session[:user_id]) if session[:user_id] 
     # find all users with this session id, if there were multiple we only want the first one
     # else we get back nil
   end

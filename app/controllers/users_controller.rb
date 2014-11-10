@@ -1,19 +1,19 @@
 class UsersController < ApplicationController
-	before_filter :authorize, :except => :index
+	skip_before_filter :authorize, :only => :index
 	def index
 		# data = crunchbase['data']
 		# @item = data['item']
 		# # organization = item[:name].first
 
-		cb_key = ENV["CB_CLIENT_ID"]
-		@users = User.all
-		@companies = Company.all
-		@info = CompanyInfo.all
+		# cb_key = ENV["CB_CLIENT_ID"]
+		# @users = User.all
+		# @companies = Company.all
+		# @info = CompanyInfo.all
 
 		# uri = HTTParty.get("http://api.crunchbase.com/v/2/organizations?user_key="+cb_key)
 		# crunchbase = JSON.parse(uri.body)
 		# @cbarray = []
-		# @otherarray = []
+		# # @otherarray = []
 
 		# crunchbase['data']['items'].each do |x| 
 		# 	@cbarray.push(x)
@@ -23,15 +23,12 @@ class UsersController < ApplicationController
 	 #    @cbarray.each do |p|
   #          @company_info  = Company.new(p)
   #          @company_info.save
-	 #    end	
-		
+	 #    end
 
 		# @org = HTTParty.get("http://api.crunchbase.com/v/2/" + ['path'] + "?user_key=d224dae72322c76020abe8f666bdb12e")
 		# @cbarray.each do |p|
 		# cburi = HTTParty.get("http://api.crunchbase.com/v/2/" + p['path'] + "?user_key=d224dae72322c76020abe8f666bdb12e")
 		# end
-
-		# raise @cbarray.inspect
 
 		# attempt to clear duplicate names
 		# for i in 1..@cbarray.length
