@@ -19,7 +19,7 @@
 	@companies = Company.all
 	@info = CompanyInfo.all
 
-	uri = HTTParty.get("http://api.crunchbase.com/v/2/organizations?user_key="+cb_key)
+	uri = HTTParty.get("http://api.crunchbase.com/v/2/organizations?user_key="+cb_key +"&page=1")
 	crunchbase = JSON.parse(uri.body)
 	@cbarray = []
 	# @otherarray = []
