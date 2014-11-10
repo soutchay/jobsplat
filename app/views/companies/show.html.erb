@@ -1,9 +1,10 @@
-
-<% if @company_info['data']['relationships']['primary_image'] %>
-<img class="imagesize" src=<%= @company_image %>>
-<% end %>
 <h1> <%= @company.name %> </h1>
+<% if @company_info %>
+<img class="imagesize" src=<%= @company_image %>>
 <div><%= @company_info['data']['properties']['short_description'] %></div>
+<% else %>
+<div><%= @company.about %></div>
+<% end %>
 
 <% @company.jobs.each do |j| %>
 

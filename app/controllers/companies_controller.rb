@@ -7,12 +7,14 @@ class CompaniesController < ApplicationController
 		cb_key = ENV["CB_CLIENT_ID"]
 		thiscompany = Company.find(params[:id])
 		path = thiscompany.path
-		@company_info = HTTParty.get("http://api.crunchbase.com/v/2/" + path + "?user_key=" + cb_key)
-		# raise company_info['data']['properties'].inspect
-		# raise @company_info['data']['properties']['short_description']
-		if @company_info['data']['relationships']['primary_image']
+		if path !=nil
+			@company_info = HTTParty.get("http://api.crunchbase.com/v/2/" + path + "?user_key=" + cb_key)
+			# raise company_info['data']['properties'].inspect
+			# raise @company_info['data']['properties']['short_description']
+			if @company_info['data']['relationships']['primary_image']
 			image_path = @company_info['data']['relationships']['primary_image']['items'][0]['path']
 			@company_image = "http://a2.images.crunchbase.com/" + image_path
+			end
 		end
 		# @company.jobs << Job.new(params.require(:job).permit(:company_id, :title, :description, :is_open, :salary))
 
