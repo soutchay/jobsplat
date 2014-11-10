@@ -42,7 +42,7 @@ div {
 	transition: top 10s;
 }
 .visualize {
-	background: url(images/business2.jpg);
+	background: image-url('business2.jpg');
 	height: 500px;
 	width: 100%;
 	background-size: 100%;
@@ -57,7 +57,7 @@ div {
 	background: red;
 }
 .contact {
-	background: url(images/business-opportunity.jpg);
+	background: image-url('business-opportunity.jpg');
 	height: 500px;
 	width: 100%;
 	background-size: 100%;
