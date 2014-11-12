@@ -42,12 +42,12 @@ class UsersController < ApplicationController
 
 	end
 	def show
-		# @user = User.find(params[:id])
-		# cb_key = ENV["CB_CLIENT_ID"]
-		# @users = User.all
-		# @companies = Company.all
-		# @info = CompanyInfo.all
-		# @jobs = Job.all
+		@user = User.find(params[:id])
+		cb_key = ENV["CB_CLIENT_ID"]
+		@users = User.all
+		@companies = Company.all
+		@info = CompanyInfo.all
+		@jobs = Job.all
 	end
 	def new
 		@user = User.new
